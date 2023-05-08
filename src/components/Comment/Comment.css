@@ -1,0 +1,19 @@
+/* src/components/Comment/Comment.css */
+.comment {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .comment-author {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .comment-content {
+    margin-left: 1rem;
+  }
+  

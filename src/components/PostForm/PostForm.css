@@ -1,0 +1,49 @@
+/* src/components/PostForm/PostForm.css */
+.post-form-container {
+    width: 80%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+  }
+  
+  .post-form-container h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .post-form-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .post-form-input label {
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-form-input input,
+  .post-form-input textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .post-form-input textarea {
+    resize: none;
+    height: 150px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
