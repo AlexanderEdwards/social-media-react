@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/post" element={<PostList />} />
+          <Route path="/posts" element={<PostList />} />
           {/* Add more routes as needed */}
         </Routes>
       </Router>

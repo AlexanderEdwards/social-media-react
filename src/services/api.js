@@ -10,7 +10,9 @@ const api = axios.create({
   },
 });
 
-const getToken = (token) => { return { headers: { 'x-auth-token': token } } }
+const getToken = (token) => { return {
+  headers: { Authorization: `Bearer ${token}` }
+} }
 
 export const register = (userData) => api.post('users/auth/signup', userData);
 export const login = (userData) => api.post('users/auth/login', userData);

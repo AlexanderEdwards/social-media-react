@@ -1,9 +1,8 @@
 // src/components/Login/Login.js
 import React, { useState } from 'react';
 import './Login.css';
-import { login } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../../services/authService';
+import { TOKEN_KEY, loginUser } from '../../services/authService';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -24,11 +23,7 @@ const Login = () => {
       const response = await loginUser(email, password)
       console.log('user object', response.user)
       // Save the auth token and user data to local storage
-      localStorage.setItem('authToken', response.token);
-      localStorage.setItem('user', (response.user._id));
-
-      // Redirect the user to the home page
-      navigate('/');
+      navigate('/posts');
     } catch (error) {
       // Show an error message or handle the error accordingly
       console.error('Error during login:', error.message);

@@ -24,7 +24,6 @@ const PostList = () => {
       },
     ]);
   }, []);
-
   return (
     <div className="post-list">
       {posts.map((post) => (
