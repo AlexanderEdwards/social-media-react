@@ -1,32 +1,31 @@
 // src/components/PostList/PostList.js
 import React, { useState, useEffect } from 'react';
 import Post from '../Post/Post';
+import PostForm from '../PostForm/PostForm';
+
 import './PostList.css';
+import { getPosts } from '../../services/api';
 
 const PostList = () => {
   const [posts, setPosts] = useState([]);
 
+  const fetchPosts = async () => {
+    try {
+      const response = await getPosts(); // Use the getPosts function from api.js
+      setPosts(response.data); // Update the state with the returned posts
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
+  };
+
   useEffect(() => {
-    // Fetch posts from the API
-    // In a real-world scenario, you would call your API here to fetch the posts
-    setPosts([
-      {
-        id: 1,
-        title: 'Sample Post 1',
-        content: 'This is a sample post.',
-        user: { username: 'John Doe' },
-      },
-      {
-        id: 2,
-        title: 'Sample Post 2',
-        content: 'This is another sample post.',
-        user: { username: 'Jane Doe' },
-      },
-    ]);
+    fetchPosts(); // Fetch posts when the component mounts
   }, []);
+
   return (
     <div className="post-list">
-      {posts.map((post) => (
+      <PostForm onPostSubmit={fetchPosts}/>
+      {posts && posts.map((post) => (
         <Post key={post.id} post={post} />
       ))}
     </div>

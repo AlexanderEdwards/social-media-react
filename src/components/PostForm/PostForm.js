@@ -1,19 +1,31 @@
 // src/components/PostForm/PostForm.js
-import React, { useState } from 'react';
-import './PostForm.css';
+import React, { useState, useContext } from 'react';
 
-const PostForm = () => {
+import './PostForm.css';
+import { createPost } from '../../services/api';
+import AuthContext from '../../utils/auth';
+import { getToken } from '../../services/authService';
+
+const PostForm = ({onPostSubmit}) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-
-  const handleSubmit = (e) => {
+  
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     // Call API to submit the new post
-    setTitle('');
-    setContent('');
+    try {
+      await createPost({ title, content }, getToken()); // Use the createPost function from api.js
+      setTitle('');
+      setContent('');
+      onPostSubmit();
+    } catch (error) {
+      console.error('Error creating post:', error);
+    }
   };
 
-  return (
+return (
     <div className="post-form-container">
       <h2>Create a New Post</h2>
       <form onSubmit={handleSubmit}>

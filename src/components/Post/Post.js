@@ -3,6 +3,7 @@ import React from 'react';
 import './Post.css';
 
 const Post = ({ post }) => {
+  console.log('post', post)
   return (
     <div className="post">
       <h2 className="post-title">{post.title}</h2>
