@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
-import { TOKEN_KEY, loginUser } from '../../services/authService';
+import {  loginUser } from '../../services/authService';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,8 +20,7 @@ const Login = () => {
 
     try {
       const { email, password } = formData;
-      const response = await loginUser(email, password)
-      console.log('user object', response.user)
+      const response = await loginUser(email, password);
       // Save the auth token and user data to local storage
       navigate('/posts');
     } catch (error) {

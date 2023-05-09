@@ -6,6 +6,7 @@ import Home from './components/Home/Home.js'
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import PostList from './components/PostList/PostList';
+import Profile from './components/Profile/Profile';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/posts" element={<PostList />} />
-          
+          <Route path="/profile/:userId" element={<Profile />} />
           {/* Add more routes as needed */}
         </Routes>
       </Router>
