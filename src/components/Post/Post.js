@@ -4,7 +4,6 @@ import './Post.css';
 import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
-  console.log('post', post)
   return (
     <div className="post">
       <h2 className="post-title">{post.title}</h2>
